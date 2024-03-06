@@ -27,3 +27,8 @@ test("Auto-waiting alternative ways", async ({ page }) => {
 
   expect(text).toContain("Data loaded with AJAX get request.");
 });
+
+test("Auto-waiting with custom timeout", async ({ page }) => {
+  const successText = page.locator(".bg-success");
+  await successText.click();
+});
