@@ -64,3 +64,19 @@ test("Reusing locators", async ({ page }) => {
 
   await expect(emailField).toHaveValue("me@acme.com");
 });
+
+test("Extracting Values", async ({ page }) => {
+  const basicForm = await page
+    .locator("nb-card")
+    .filter({ hasText: "Basic form" });
+
+  const emailField = basicForm.getByRole("textbox", { name: "Email" });
+
+  await emailField.fill("me@acme.com");
+
+  const emailValue = await emailField.inputValue();
+  const emailPlaceholder = await emailField.getAttribute("placeholder");
+
+  await expect(emailPlaceholder).toEqual("Email");
+  await expect(emailValue).toEqual("me@acme.com");
+});
