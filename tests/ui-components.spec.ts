@@ -101,3 +101,18 @@ test("Lists", async ({ page }) => {
     await expect(header).toHaveCSS("background-color", backgroundColor);
   }
 });
+
+test("Tooltip", async ({ page }) => {
+  await page.getByText("Modal & Overlays").click();
+  await page.getByText("Tooltip").click();
+
+  const tooltipCard = page.locator("nb-card", {
+    hasText: "Tooltip Placements",
+  });
+
+  const tooltipButton = tooltipCard.getByRole("button", { name: "Top" });
+  await tooltipButton.hover();
+
+  const tooltip = page.locator("nb-tooltip");
+  await expect(tooltip).toHaveText("This is a tooltip");
+});
