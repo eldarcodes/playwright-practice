@@ -149,3 +149,53 @@ test("Dialog box", async ({ page }) => {
 
   await expect(resultEmail).toEqual("fat@yandex.ru");
 });
+
+test("Table", async ({ page }) => {
+  await page.getByText("Tables & Data").click();
+  await page.getByText("Smart Table").click();
+
+  const targetRow = page.getByRole("row", { name: "twitter@outlook.com" });
+  await targetRow.locator(".nb-edit").click();
+
+  await page.locator("input-editor").getByPlaceholder("Age").clear();
+  await page.locator("input-editor").getByPlaceholder("Age").fill("35");
+
+  await page.locator(".nb-checkmark").click();
+
+  // update on the second page
+  await page.locator(".ng2-smart-pagination-nav").getByText("2").click();
+  const targetRowById = page
+    .getByRole("row", { name: "11" })
+    .filter({ has: page.locator("td").nth(1).getByText("11") });
+  await targetRowById.locator(".nb-edit").click();
+
+  await page.locator("input-editor").getByPlaceholder("E-mail").clear();
+  await page
+    .locator("input-editor")
+    .getByPlaceholder("E-mail")
+    .fill("test@test.com");
+  await page.locator(".nb-checkmark").click();
+
+  await expect(targetRowById.locator("td").nth(5)).toHaveText("test@test.com");
+
+  // test filter of the table
+
+  const ages = ["20", "30", "40", "150"];
+
+  for (let age of ages) {
+    await page.locator("input-filter").getByPlaceholder("Age").clear();
+    await page.locator("input-filter").getByPlaceholder("Age").fill(age);
+    await page.waitForTimeout(500);
+
+    const ageRows = page.locator("tbody tr");
+
+    for (let row of await ageRows.all()) {
+      const cellValue = await row.locator("td").last().textContent();
+      if (age === "150") {
+        expect(cellValue).toEqual(" No data found ");
+        continue;
+      }
+      expect(cellValue).toEqual(age);
+    }
+  }
+});
