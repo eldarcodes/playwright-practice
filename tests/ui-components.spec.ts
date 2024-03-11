@@ -116,3 +116,36 @@ test("Tooltip", async ({ page }) => {
   const tooltip = page.locator("nb-tooltip");
   await expect(tooltip).toHaveText("This is a tooltip");
 });
+
+test("Dialog box", async ({ page }) => {
+  await page.getByText("Tables & Data").click();
+  await page.getByText("Smart Table").click();
+
+  page.on("dialog", (dialog) => {
+    expect(dialog.message()).toEqual("Are you sure you want to delete?");
+
+    dialog.accept();
+  });
+
+  const initialEmail = await page
+    .locator("tbody tr")
+    .first()
+    .locator("td")
+    .nth(5)
+    .textContent();
+
+  await page
+    .getByRole("table")
+    .locator("tr", { hasText: initialEmail })
+    .locator(".nb-trash")
+    .click();
+
+  const resultEmail = await page
+    .locator("tbody tr")
+    .first()
+    .locator("td")
+    .nth(5)
+    .textContent();
+
+  await expect(resultEmail).toEqual("fat@yandex.ru");
+});
