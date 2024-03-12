@@ -1,10 +1,10 @@
 import { Page, expect } from "@playwright/test";
 
-export class DatepickerPage {
-  private readonly page: Page;
+import { HelperBase } from "./helper-base";
 
+export class DatepickerPage extends HelperBase {
   constructor(page: Page) {
-    this.page = page;
+    super(page);
   }
 
   private async selectDateInCalendar(days: number) {

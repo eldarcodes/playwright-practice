@@ -1,10 +1,10 @@
 import { Page } from "@playwright/test";
 
-export class NavigationPage {
-  private readonly page: Page;
+import { HelperBase } from "./helper-base";
 
+export class NavigationPage extends HelperBase {
   constructor(page: Page) {
-    this.page = page;
+    super(page);
   }
 
   private async selectGroupMenuItem(groupItemTitle: string) {
@@ -18,6 +18,7 @@ export class NavigationPage {
 
   async navigateToFormLayoutsPage() {
     await this.selectGroupMenuItem("Forms");
+    await this.waitFor(5);
     await this.page.getByText("Form Layouts").click();
   }
 
