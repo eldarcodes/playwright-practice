@@ -39,21 +39,6 @@ test("Has title", async ({ page }) => {
 });
 
 test("Delete article", async ({ page, request }) => {
-  const response = await request.post(
-    "https://api.realworld.io/api/users/login",
-    {
-      data: {
-        user: {
-          email: "eldar@eldar.com",
-          password: "eldar",
-        },
-      },
-    }
-  );
-
-  const responseBody = await response.json();
-  const accessToken = responseBody.user.token;
-
   const responseArticle = await request.post(
     "https://api.realworld.io/api/articles",
     {
@@ -64,9 +49,6 @@ test("Delete article", async ({ page, request }) => {
           body: "Eldar test article body",
           tagList: ["Eldar test article tag"],
         },
-      },
-      headers: {
-        Authorization: `Token ${accessToken}`,
       },
     }
   );
@@ -114,28 +96,8 @@ test("Create article", async ({ page, request }) => {
     "Playwright test article title"
   );
 
-  const response = await request.post(
-    "https://api.realworld.io/api/users/login",
-    {
-      data: {
-        user: {
-          email: "eldar@eldar.com",
-          password: "eldar",
-        },
-      },
-    }
-  );
-
-  const responseBody = await response.json();
-  const accessToken = responseBody.user.token;
-
   const articleDeleteResponse = await request.delete(
-    `https://api.realworld.io/api/articles/${articleSlug}`,
-    {
-      headers: {
-        Authorization: `Token ${accessToken}`,
-      },
-    }
+    `https://api.realworld.io/api/articles/${articleSlug}`
   );
 
   expect(articleDeleteResponse.status()).toBe(204);

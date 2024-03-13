@@ -93,6 +93,8 @@ test("Lists", async ({ page }) => {
     Corporate: "rgb(255, 255, 255)",
   };
 
+  await dropdownMenu.click();
+
   for (const [theme, backgroundColor] of Object.entries(colors)) {
     await optionList.filter({ hasText: theme }).click();
     if (theme !== "Corporate") {
