@@ -9,24 +9,23 @@ test.beforeEach(async ({ page }) => {
   });
 
   await page.goto("https://angular.realworld.how/");
-
-  await page.getByText("Sign in").click();
-  await page.getByRole("textbox", { name: "Email" }).fill("eldar@eldar.com");
-  await page.getByRole("textbox", { name: "Password" }).fill("eldar");
-  await page.getByRole("button").click();
+  await page.waitForTimeout(1000);
 });
 
 test("Has title", async ({ page }) => {
-  await page.route("*/**/api/articles*", async (route) => {
-    const response = await route.fetch();
-    const responseBody = await response.json();
-    responseBody.articles[0].title = "This is updated MOCK title";
-    responseBody.articles[0].description = "This is updated MOCK description";
+  await page.route(
+    "https://api.realworld.io/api/articles?limit=10&offset=0",
+    async (route) => {
+      const response = await route.fetch();
+      const responseBody = await response.json();
+      responseBody.articles[0].title = "This is updated MOCK title";
+      responseBody.articles[0].description = "This is updated MOCK description";
 
-    await route.fulfill({
-      body: JSON.stringify(responseBody),
-    });
-  });
+      await route.fulfill({
+        body: JSON.stringify(responseBody),
+      });
+    }
+  );
 
   await page.getByText("Global Feed").click();
 
@@ -78,7 +77,7 @@ test("Delete article", async ({ page, request }) => {
   await page.getByText("Eldar test article title").click();
   await page.getByRole("button", { name: "Delete Article" }).first().click();
 
-  await expect(page.locator("app-article-list h1").first()).toContainText(
+  await expect(page.locator("app-article-list h1").first()).not.toContainText(
     "Eldar test article title"
   );
 });
@@ -96,7 +95,6 @@ test("Create article", async ({ page, request }) => {
     .getByRole("textbox", { name: "Write your article (in markdown)" })
     .fill("Playwright test article body");
 
-  await page.waitForTimeout(3000);
   await page.getByRole("button", { name: "Publish Article" }).click();
 
   const responseArticle = await page.waitForResponse(
