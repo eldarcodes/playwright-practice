@@ -1,5 +1,6 @@
 import { PageManager } from "../page-objects/page-manager";
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
+import { faker } from "@faker-js/faker";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:4200/");
@@ -17,6 +18,8 @@ test("Navigate to form page", async ({ page }) => {
 
 test("Parametrized methods", async ({ page }) => {
   const pm = new PageManager(page);
+  const randomFullName = faker.person.fullName();
+  const randomEmail = faker.internet.email();
 
   // Form Layouts
   await pm.navigateTo().navigateToFormLayoutsPage();
@@ -30,7 +33,11 @@ test("Parametrized methods", async ({ page }) => {
 
   await pm
     .onFormLayoutsPage()
-    .submitInlineFormWithCredentials("Eldar", "eldar2@eldarcodes.com", true);
+    .submitInlineFormWithCredentials(randomFullName, randomEmail, true);
+
+  await page
+    .locator("nb-card", { hasText: "Inline form" })
+    .screenshot({ path: "screenshots/inline-form.png" });
 
   // Datepicker
   await pm.navigateTo().navigateToDatePickerPage();

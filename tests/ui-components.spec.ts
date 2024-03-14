@@ -5,7 +5,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Form Layouts Page", () => {
-  test.beforeEach(async ({ page }) => {
+  test.describe.configure({ retries: 2 });
+
+  test.beforeEach(async ({ page }, testInfo) => {
+    if (testInfo.retry) {
+      console.log("Retrying test", testInfo.title);
+    }
     await page.getByText("Forms").click();
     await page.getByText("Form Layouts").click();
   });
@@ -17,7 +22,7 @@ test.describe("Form Layouts Page", () => {
 
     const emailInput = usingGridBlock.getByRole("textbox", { name: "Email" });
 
-    await emailInput.pressSequentially("me@acme.com", { delay: 300 });
+    await emailInput.pressSequentially("me@acme.com");
 
     const inputValue = await emailInput.inputValue();
 
