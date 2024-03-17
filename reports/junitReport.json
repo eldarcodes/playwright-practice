@@ -1,74 +1,8 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="2.61898">
-<testsuite name="tests\ui-components.spec.ts" timestamp="2024-03-17T12:15:02.469Z" hostname="chromium" tests="1" failures="1" skipped="0" time="2.111" errors="0">
-<testcase name="Form Layouts Page › Radio buttons" classname="tests\ui-components.spec.ts" time="2.111">
-<failure message="ui-components.spec.ts:34:8 Radio buttons" type="FAILURE">
-<![CDATA[  [chromium] › tests\ui-components.spec.ts:34:8 › Form Layouts Page › Radio buttons ────────────────
-
-    Error: Screenshot comparison failed:
-
-      176 pixels (ratio 0.01 of all image pixels) are different.
-
-    Expected: e:\mirzabekov\projects\pw-practice-app\tests\ui-components.spec.ts-snapshots\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png
-    Received: e:\mirzabekov\projects\pw-practice-app\test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-actual.png
-        Diff: e:\mirzabekov\projects\pw-practice-app\test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-diff.png
-
-    Call log:
-      - page._expectScreenshot with timeout 2000ms
-      -   verifying given screenshot expectation
-      - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })
-      -   locator resolved to <nb-card _nghost-vjd-c95="" _ngcontent-vjd-c287="">…</nb-card>
-      - taking element screenshot
-      -   disabled all CSS animations
-      - waiting for fonts to load...
-      - fonts loaded
-      - attempting scroll into view action
-      -   waiting for element to be stable
-      - 176 pixels (ratio 0.01 of all image pixels) are different.
-      - waiting 100ms before taking screenshot
-      - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })
-      -   locator resolved to <nb-card _nghost-vjd-c95="" _ngcontent-vjd-c287="">…</nb-card>
-      - taking element screenshot
-      -   disabled all CSS animations
-      - waiting for fonts to load...
-      - fonts loaded
-      - attempting scroll into view action
-      -   waiting for element to be stable
-      - captured a stable screenshot
-      - 176 pixels (ratio 0.01 of all image pixels) are different.
-
-
-      47 |       .isChecked();
-      48 |
-    > 49 |     await expect(usingGridBlock).toHaveScreenshot();
-         |                                  ^
-      50 |   });
-      51 | });
-      52 |
-
-        at e:\mirzabekov\projects\pw-practice-app\tests\ui-components.spec.ts:49:34
-
-    attachment #1: Form-Layouts-Page-Radio-buttons-1-expected.png (image/png) ──────────────────────
-    tests\ui-components.spec.ts-snapshots\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: Form-Layouts-Page-Radio-buttons-1-actual.png (image/png) ────────────────────────
-    test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-actual.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: Form-Layouts-Page-Radio-buttons-1-diff.png (image/png) ──────────────────────────
-    test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-diff.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
-<system-out>
-<![CDATA[
-[[ATTACHMENT|..\tests\ui-components.spec.ts-snapshots\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png]]
-
-[[ATTACHMENT|..\test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-actual.png]]
-
-[[ATTACHMENT|..\test-results\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\Form-Layouts-Page-Radio-buttons-1-diff.png]]
-]]>
-</system-out>
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="0" time="18.617589999999996">
+<testsuite name="tests\page-objects.spec.ts" timestamp="2024-03-17T12:29:34.760Z" hostname="chromium" tests="2" failures="0" skipped="0" time="15.913" errors="0">
+<testcase name="Navigate to form page @regression" classname="tests\page-objects.spec.ts" time="8.31">
+</testcase>
+<testcase name="Parametrized methods" classname="tests\page-objects.spec.ts" time="7.603">
 </testcase>
 </testsuite>
 </testsuites>
