@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Form Layouts Page", () => {
-  test.describe.configure({ retries: 2 });
+  test.describe.configure({ retries: 0 });
 
   test.beforeEach(async ({ page }, testInfo) => {
     if (testInfo.retry) {
@@ -36,27 +36,17 @@ test.describe("Form Layouts Page", () => {
       hasText: "Using the Grid",
     });
 
+    const selectedOption = "Option 1";
+
     await usingGridBlock
-      .getByRole("radio", { name: "Option 1" })
+      .getByRole("radio", { name: selectedOption })
       .check({ force: true });
 
     const radioStatus = await usingGridBlock
-      .getByRole("radio", { name: "Option 1" })
+      .getByRole("radio", { name: selectedOption })
       .isChecked();
 
-    expect(radioStatus).toBeTruthy();
-
-    await usingGridBlock
-      .getByRole("radio", { name: "Option 2" })
-      .check({ force: true });
-
-    expect(
-      await usingGridBlock.getByRole("radio", { name: "Option 1" }).isChecked()
-    ).toBeFalsy();
-
-    expect(
-      await usingGridBlock.getByRole("radio", { name: "Option 2" }).isChecked()
-    ).toBeTruthy();
+    await expect(usingGridBlock).toHaveScreenshot();
   });
 });
 

@@ -11,7 +11,11 @@ export default defineConfig<TestOptions>({
   },
 
   retries: 1,
-  reporter: "html",
+  reporter: [
+    ["json", { outputFile: "reports/jsonReport.json" }],
+    ["junit", { outputFile: "reports/junitReport.json" }],
+    ["html"],
+  ],
 
   use: {
     baseURL: "http://localhost:4200",

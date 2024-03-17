@@ -1,0 +1,187 @@
+{
+  "config": {
+    "configFile": "e:\\mirzabekov\\projects\\pw-practice-app\\playwright.config.ts",
+    "rootDir": "e:/mirzabekov/projects/pw-practice-app",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 15000,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "reports/jsonReport.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junitReport.json"
+        }
+      ],
+      [
+        "html",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "e:/mirzabekov/projects/pw-practice-app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "e:/mirzabekov/projects/pw-practice-app",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 10000
+      },
+      {
+        "outputDir": "e:/mirzabekov/projects/pw-practice-app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "e:/mirzabekov/projects/pw-practice-app",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 10000
+      },
+      {
+        "outputDir": "e:/mirzabekov/projects/pw-practice-app/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "e:/mirzabekov/projects/pw-practice-app",
+        "testIgnore": [],
+        "testMatch": [
+          "mobile.spec.ts"
+        ],
+        "timeout": 10000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.42.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\ui-components.spec.ts",
+      "file": "tests/ui-components.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Form Layouts Page",
+          "file": "tests/ui-components.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Radio buttons",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 10000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "failed",
+                      "duration": 2111,
+                      "error": {
+                        "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  176 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts-snapshots\\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png\u001b[39m\nReceived: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-actual.png\u001b[39m\n    Diff: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- page._expectScreenshot with timeout 2000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n",
+                        "stack": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  176 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts-snapshots\\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png\u001b[39m\nReceived: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-actual.png\u001b[39m\n    Diff: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- page._expectScreenshot with timeout 2000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n    at e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts:49:34",
+                        "location": {
+                          "file": "e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts",
+                          "column": 34,
+                          "line": 49
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 47 |\u001b[39m       \u001b[33m.\u001b[39misChecked()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 48 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     \u001b[36mawait\u001b[39m expect(usingGridBlock)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts",
+                            "column": 34,
+                            "line": 49
+                          },
+                          "message": "Error: \u001b[31mScreenshot comparison failed:\u001b[39m\n\n  176 pixels (ratio 0.01 of all image pixels) are different.\n\nExpected: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts-snapshots\\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png\u001b[39m\nReceived: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-actual.png\u001b[39m\n    Diff: \u001b[33me:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-diff.png\u001b[39m\n\nCall log:\n  \u001b[2m- page._expectScreenshot with timeout 2000ms\u001b[22m\n\u001b[2m  -   verifying given screenshot expectation\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\u001b[2m  - waiting 100ms before taking screenshot\u001b[22m\n\u001b[2m  - waiting for locator('nb-card').filter({ hasText: 'Using the Grid' })\u001b[22m\n\u001b[2m  -   locator resolved to <nb-card _nghost-vjd-c95=\"\" _ngcontent-vjd-c287=\"\">…</nb-card>\u001b[22m\n\u001b[2m  - taking element screenshot\u001b[22m\n\u001b[2m  -   disabled all CSS animations\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\u001b[2m  - attempting scroll into view action\u001b[22m\n\u001b[2m  -   waiting for element to be stable\u001b[22m\n\u001b[2m  - captured a stable screenshot\u001b[22m\n\u001b[2m  - 176 pixels (ratio 0.01 of all image pixels) are different.\u001b[22m\n\n\n\u001b[0m \u001b[90m 47 |\u001b[39m       \u001b[33m.\u001b[39misChecked()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 48 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 |\u001b[39m     \u001b[36mawait\u001b[39m expect(usingGridBlock)\u001b[33m.\u001b[39mtoHaveScreenshot()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m   })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 51 |\u001b[39m })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m\u001b[0m\n\n\u001b[2m    at e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts:49:34\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-03-17T12:15:02.833Z",
+                      "attachments": [
+                        {
+                          "name": "Form-Layouts-Page-Radio-buttons-1-expected.png",
+                          "contentType": "image/png",
+                          "path": "e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts-snapshots\\Form-Layouts-Page-Radio-buttons-1-chromium-win32.png"
+                        },
+                        {
+                          "name": "Form-Layouts-Page-Radio-buttons-1-actual.png",
+                          "contentType": "image/png",
+                          "path": "e:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-actual.png"
+                        },
+                        {
+                          "name": "Form-Layouts-Page-Radio-buttons-1-diff.png",
+                          "contentType": "image/png",
+                          "path": "e:\\mirzabekov\\projects\\pw-practice-app\\test-results\\tests-ui-components-Form-Layouts-Page-Radio-buttons-chromium\\Form-Layouts-Page-Radio-buttons-1-diff.png"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "e:\\mirzabekov\\projects\\pw-practice-app\\tests\\ui-components.spec.ts",
+                        "column": 34,
+                        "line": 49
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e216793d9086a91db4b8-957f9fb354fcb5d5e30b",
+              "file": "tests/ui-components.spec.ts",
+              "line": 34,
+              "column": 8
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-03-17T12:15:02.149Z",
+    "duration": 2935.4049999999997,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
