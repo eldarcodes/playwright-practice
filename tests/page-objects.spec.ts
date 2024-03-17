@@ -3,7 +3,7 @@ import { test } from "@playwright/test";
 import { faker } from "@faker-js/faker";
 
 test.beforeEach(async ({ page }) => {
-  await page.goto("http://localhost:4200/");
+  await page.goto("/");
 });
 
 test("Navigate to form page", async ({ page }) => {
